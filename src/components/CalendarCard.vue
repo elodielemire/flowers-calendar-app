@@ -54,4 +54,20 @@ export default {
     padding-top: 10px;
   }
 }
+.high-contrast .calendar-card {
+  background: black;
+  border: 1px solid blueviolet;
+}
+.high-contrast .calendar-card__title {
+  background-color: black;
+  border-bottom: 1px solid blueviolet;
+  color: white;
+}
+.high-contrast .calendar-card:hover .calendar-card__title,
+.high-contrast .calendar-card.inactive-month:hover .calendar-card__title{
+  background-color: crimson;
+}
+.high-contrast .calendar-card.inactive-month {
+  opacity: 0.7;
+}
 </style>

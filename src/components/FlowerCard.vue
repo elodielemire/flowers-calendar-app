@@ -56,4 +56,9 @@ export default {
   text-shadow: 0px 3px 16px grey;
   font-weight: lighter;
 }
+.high-contrast .flower-card {
+  border: 1px solid lightgoldenrodyellow;
+  color: white;
+  background: black;
+}
 </style>

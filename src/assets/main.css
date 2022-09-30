@@ -24,3 +24,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.high-contrast {
+  color: white;
+  background: rgba(0,0,0,0.9);
+}

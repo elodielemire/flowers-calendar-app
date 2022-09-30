@@ -6,6 +6,7 @@ import {getImgUrl} from "./images.js";
 
 <template>
   <h1 class="main-title">💐 Le calendrier des fleurs 💐</h1>
+  <button class="high-contrast-button" @click="toggleHighContrast">✨</button>
   <div class="calendar-container">
   <div class="calendar-container__left" :style="activeFlower ? {backgroundImage: `url(${getImgUrl(activeFlower.picture)})`} : {}">
     <div class="backdrop">
@@ -77,6 +78,9 @@ export default {
     }
   },
   methods: {
+    toggleHighContrast() {
+      document.body.classList.toggle('high-contrast')
+    },
     scrollToTop() {
       window.scrollTo({
         top: 80,
@@ -163,17 +167,25 @@ ul {
   border: 1px solid black;
   color: black;
 }
-.see-all:hover {
+.see-all:hover,
+.high-contrast-button:hover {
   cursor: pointer;
-  background-color: palevioletred;
-  color: white;
-  border-color: white;
+  background-color: floralwhite;
 }
 .backdrop {
   width: 100%;
   align-items: center;
   display: flex;
   backdrop-filter: blur(50px);
+}
+.high-contrast-button {
+  position: absolute;
+  top: 38px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  border-radius: 10px;
+  font-size: 30px;
 }
 @media (max-width: 768px) {
   .calendar-container {
@@ -182,7 +194,33 @@ ul {
   .calendar-container__left {
     width: 100%;
   }
-  .calendar-card__container {
+  .main-title {
+    margin-top: 60px;
   }
+}
+.high-contrast .main-title {
+  color: white;
+}
+.high-contrast .see-all {
+  border-color: white;
+  color: white;
+}
+.high-contrast .see-all:hover,
+.high-contrast .high-contrast-button:hover {
+  background-color: rebeccapurple;
+}
+.high-contrast .calendar-container__left,
+.high-contrast .calendar-card__container {
+  background-color: black;
+}
+.high-contrast .calendar-container__left {
+  background-image: none;
+}
+.high-contrast .backdrop {
+  backdrop-filter: blur(1000px);
+}
+.high-contrast .high-contrast-button {
+  color: white;
+  border-color: white;
 }
 </style>
