@@ -1,14 +1,15 @@
 # flowers-calendar-app
 
-This template should help get you started developing with Vue 3 in Vite.
+## Exercice
 
-## Recommended IDE Setup
+Given a certain month, show the most favorable flowers to plant during this month. Given a certain flower, show the most favorable months for planting this flower. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+## Improvements
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Accessibility : being able to click on the cards with `Tab`
+- UX : being able to unselect the month when clicking outside of a month card
+- Functionnality : being able to select multiple months
 
 ## Project Setup
 
