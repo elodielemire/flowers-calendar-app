@@ -40,6 +40,9 @@ const allFlowers = []
 for (const flower of flowersData) {
   allFlowers.push({...flower, months: flower.months.split(',')})
 }
+// Sort by alphabetical order
+allFlowers.sort((a, b) => a.name.localeCompare(b.name))
+
 const allMonths = [
   'Janvier',
   'Février',

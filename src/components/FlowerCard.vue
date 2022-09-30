@@ -10,7 +10,8 @@ export default {
 
 <template>
     <div class="flower-picture"
-         v-bind:style="{ backgroundImage: `url(${getImgUrl(flower.picture)})` }"></div>
+         v-bind:style="{ backgroundImage: `url(${getImgUrl(flower.picture)})` }"
+         :alt="flower.name"></div>
     <div class="flower-card__text">
       <h2 class="flower-name">{{ flower.name }}</h2>
       <p>{{ flower.category }}</p>
