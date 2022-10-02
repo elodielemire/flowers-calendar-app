@@ -17,18 +17,18 @@ import {getImgUrl} from "./images.js";
   </div>
   <ul class="calendar-card__container">
     <li class="calendar-card"
-        @click="clickMonth(month.name); activeMonth = month.name"
-        :class="{'active-month': activeMonth === month.name,
-        'inactive-month': activeMonth && activeMonth!==month.name}"
-        v-for="month in months">
-      <CalendarCard v-bind:month="month"/>
+        @click="clickMonth(month)"
+        :class="{'active-month': activeMonth === month,
+        'inactive-month': activeMonth && activeMonth!==month}"
+        v-for="month in allMonths">
+      <CalendarCard v-bind:label="month" v-bind:isChecked="activeFlower && activeFlower.months.includes(month)"/>
     </li>
   </ul>
   </div>
   <button class="see-all" @click="resetDatas">Voir toutes les fleurs</button>
   <ul class="flower-card__container">
     <li class="flower-card"
-        @click="clickFlower(flower.months); activeFlower = flower"
+        @click="clickFlower(flower)"
         v-for="flower in flowers">
       <FlowerCard v-bind:flower="flower"/>
     </li>
@@ -59,22 +59,12 @@ const allMonths = [
   'Décembre',
 ];
 
-function findMonthMatches(matchingMonths) {
-  let newArray = []
-  for (let month of allMonths) {
-    let matches = matchingMonths.includes(month);
-    newArray.push({name: month, matches: matches}) // new format for months
-  }
-  return newArray
-}
-
 export default {
   data() {
     return {
       activeFlower: null,
       activeMonth: null,
       flowers: allFlowers,
-      months: findMonthMatches([]),
     }
   },
   methods: {
@@ -88,16 +78,15 @@ export default {
       })
     },
     resetDatas() {
-      this.months = findMonthMatches([])
       this.flowers = allFlowers
-      this.activeMonth=null
-      this.activeFlower=null
+      this.activeMonth = null
+      this.activeFlower = null
     },
-    clickFlower(flowerMonths) {
+    clickFlower(flower) {
       this.scrollToTop()
-      this.months = findMonthMatches(flowerMonths);
+      this.activeFlower = flower
       this.flowers = allFlowers // reinitialisation
-      this.activeMonth= null // reinitialisation
+      this.activeMonth = null // reinitialisation
     },
     clickMonth(month) {
       let newArray = []
@@ -106,9 +95,9 @@ export default {
           newArray.push(flower)
         }
       }
-      this.months = findMonthMatches([]) // reinitialisation
       this.flowers = newArray
-      this.activeFlower=null // reinitialisation
+      this.activeMonth = month
+      this.activeFlower = null // reinitialisation
     }
   }
 }

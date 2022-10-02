@@ -1,12 +1,12 @@
 <script>
 export default {
-  props: ['month'],
+  props: ['label', 'isChecked'],
 }
 </script>
 
 <template>
-  <h2 class="calendar-card__title">{{ month.name }}</h2>
-  <p class="calendar-card__check" v-if="month.matches">✅</p>
+  <h2 class="calendar-card__title">{{ label }}</h2>
+  <p class="calendar-card__check" v-if="isChecked">✅</p>
 </template>
 
 <style>
@@ -64,7 +64,8 @@ export default {
   color: white;
 }
 .high-contrast .calendar-card:hover .calendar-card__title,
-.high-contrast .calendar-card.inactive-month:hover .calendar-card__title{
+.high-contrast .calendar-card.inactive-month:hover .calendar-card__title,
+.high-contrast .calendar-card.active-month .calendar-card__title {
   background-color: lightgoldenrodyellow;
   color: black;
 }
