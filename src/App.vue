@@ -6,7 +6,7 @@ import {getImgUrl} from "./images.js";
 
 <template>
   <h1 class="main-title">💐 Le calendrier des fleurs 💐</h1>
-  <button class="high-contrast-button" @click="toggleHighContrast">✨</button>
+  <button class="high-contrast-button" @click="toggleHighContrast">☯</button>
   <div class="calendar-container">
   <div class="calendar-container__left" :style="activeFlower ? {backgroundImage: `url(${getImgUrl(activeFlower.picture)})`} : {}">
     <div class="backdrop">
@@ -89,13 +89,7 @@ export default {
       this.activeMonth = null // reinitialisation
     },
     clickMonth(month) {
-      let newArray = []
-      for(let flower of allFlowers) {
-        if(flower.months.includes(month)) {
-          newArray.push(flower)
-        }
-      }
-      this.flowers = newArray
+      this.flowers = allFlowers.filter(flower => flower.months.includes(month))
       this.activeMonth = month
       this.activeFlower = null // reinitialisation
     }
