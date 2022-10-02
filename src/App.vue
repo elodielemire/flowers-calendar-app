@@ -37,12 +37,9 @@ import {getImgUrl} from "./images.js";
 
 <script>
 import flowersData from "./assets/flowers.json";
-const allFlowers = []
-for (const flower of flowersData) {
-  allFlowers.push({...flower, months: flower.months.split(',')})
-}
-// Sort by alphabetical order
-allFlowers.sort((a, b) => a.name.localeCompare(b.name))
+const allFlowers = flowersData
+    .sort((a, b) => a.name.localeCompare(b.name)) // sort by alphabetical order
+    .map(flower => ({...flower, months: flower.months.split(',')})) // format months value
 
 const allMonths = [
   'Janvier',
