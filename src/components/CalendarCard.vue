@@ -56,16 +56,17 @@ export default {
 }
 .high-contrast .calendar-card {
   background: black;
-  border: 1px solid blueviolet;
+  border: 1px solid lightgoldenrodyellow;
 }
 .high-contrast .calendar-card__title {
   background-color: black;
-  border-bottom: 1px solid blueviolet;
+  border-bottom: 1px solid lightgoldenrodyellow;
   color: white;
 }
 .high-contrast .calendar-card:hover .calendar-card__title,
 .high-contrast .calendar-card.inactive-month:hover .calendar-card__title{
-  background-color: crimson;
+  background-color: lightgoldenrodyellow;
+  color: black;
 }
 .high-contrast .calendar-card.inactive-month {
   opacity: 0.7;

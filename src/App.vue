@@ -207,7 +207,8 @@ ul {
 }
 .high-contrast .see-all:hover,
 .high-contrast .high-contrast-button:hover {
-  background-color: rebeccapurple;
+  background-color: lightgoldenrodyellow;
+  color: black;
 }
 .high-contrast .calendar-container__left,
 .high-contrast .calendar-card__container {
@@ -215,9 +216,6 @@ ul {
 }
 .high-contrast .calendar-container__left {
   background-image: none;
-}
-.high-contrast .backdrop {
-  backdrop-filter: blur(1000px);
 }
 .high-contrast .high-contrast-button {
   color: white;
